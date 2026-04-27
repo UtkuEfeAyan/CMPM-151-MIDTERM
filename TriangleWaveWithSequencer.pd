@@ -1,0 +1,104 @@
+#N canvas 0 38 767 891 12;
+#X obj 60 10 tgl 28 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000
+0 1;
+#X msg 50 60 \; pd dsp \$1;
+#X obj 490 400 phasor~;
+#X obj 460 310 phasor~;
+#X obj 530 270 * -1, f 5;
+#X obj 600 270 bng 27 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 498 453 *~ 2;
+#X obj 418 461 *~ 2;
+#X obj 418 488 -~ 1;
+#X obj 497 481 -~ 1;
+#X obj 420 520 clip~ 0 1;
+#X obj 497 512 clip~ 0 1;
+#X obj 464 577 +~;
+#X obj 490 613 *~ 2;
+#X obj 460 660 -~ 1;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array triangleWave 100 float 3 black black;
+#A 0 0.591077 0.548794 0.506512 0.464229 0.421947 0.379665 0.337382
+0.2951 0.252817 0.210535 0.168252 0.12597 0.0836875 0.0414052 -0.00087738
+-0.0431597 -0.0854421 -0.127725 -0.170007 -0.212289 -0.254572 -0.296854
+-0.339137 -0.381419 -0.423702 -0.465984 -0.508266 -0.550549 -0.592831
+-0.635114 -0.677396 -0.719678 -0.761961 -0.804243 -0.846526 -0.888808
+-0.931091 -0.973373 -0.984344 -0.942062 -0.89978 -0.857497 -0.815215
+-0.772932 -0.73065 -0.688368 -0.646085 -0.603803 -0.56152 -0.519238
+-0.476955 -0.434673 -0.39239 -0.350108 -0.307826 -0.265543 -0.223261
+-0.180979 -0.138696 -0.0964136 -0.0541313 -0.0118487 0.0304337 0.072716
+0.114999 0.157281 0.199563 0.241846 0.284128 0.326411 0.368693 0.410975
+0.453258 0.49554 0.537823 0.580105 0.622388 0.66467 0.706953 0.749235
+0.791517 0.8338 0.876082 0.918365 0.960647 0.997071 0.954788 0.912506
+0.870223 0.827941 0.785658 0.743376 0.701094 0.658811 0.616529 0.574246
+0.531964 0.489681 0.447399 0.405117;
+#X coords 0 1 100 -1 295 222 1;
+#X restore 70 600 graph;
+#X obj 710 590 tgl 41 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 580 720 tabwrite~ triangleWave;
+#X msg 570 330 0;
+#X obj 170 100 metro 500;
+#X obj 89 163 f;
+#X obj 132 165 + 1;
+#X obj 110 230 select 0 1 2 3, f 15;
+#X obj 109 198 mod 4;
+#X obj 160 380 mtof, f 7;
+#X obj 511 758 *~;
+#X obj 470 850 dac~, f 8;
+#X floatatom 500 210 5 0 0 0 - - -, f 5;
+#X obj 660 462 vline~;
+#X msg 640 160 0.5 25 \, 0 100 75;
+#X obj 280 50 tgl 39 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg 210 280 70;
+#X msg 163 283 51;
+#X msg 120 280 63;
+#X text 10 320 change these 4 values to make different sounds in progresion
+;
+#X obj 620 650 metro 80;
+#X msg 80 280 47;
+#X text 330 40 press this;
+#X text 670 570 press this;
+#X text 110 20 press this;
+#X connect 0 0 1 0;
+#X connect 2 0 6 0;
+#X connect 3 0 7 0;
+#X connect 4 0 2 0;
+#X connect 5 0 18 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
+#X connect 9 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 12 1;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 14 0 17 0;
+#X connect 14 0 25 0;
+#X connect 16 0 35 0;
+#X connect 18 0 3 1;
+#X connect 18 0 2 1;
+#X connect 19 0 20 0;
+#X connect 19 0 29 0;
+#X connect 20 0 21 0;
+#X connect 20 0 23 0;
+#X connect 21 0 20 1;
+#X connect 22 0 36 0;
+#X connect 22 1 33 0;
+#X connect 22 2 32 0;
+#X connect 22 3 31 0;
+#X connect 23 0 22 0;
+#X connect 24 0 27 0;
+#X connect 25 0 26 0;
+#X connect 25 0 26 1;
+#X connect 27 0 3 0;
+#X connect 27 0 4 0;
+#X connect 28 0 25 1;
+#X connect 29 0 28 0;
+#X connect 30 0 19 0;
+#X connect 31 0 24 0;
+#X connect 32 0 24 0;
+#X connect 33 0 24 0;
+#X connect 35 0 17 0;
+#X connect 36 0 24 0;
