@@ -1,0 +1,14 @@
+#N canvas 755 56 450 272 12;
+#X obj 70 30 tgl 28 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000
+0 1;
+#X msg 60 80 \; pd dsp \$1;
+#X text 120 40 press this;
+#X obj 311 128 *~;
+#X obj 270 220 dac~, f 8;
+#X obj 239 103 noise~;
+#X floatatom 360 80 5 0 0 0 - - -, f 5;
+#X connect 0 0 1 0;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 5 0 3 0;
+#X connect 6 0 3 1;
